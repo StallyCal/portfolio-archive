@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>OJASWA SRIVASTAV // OFFICIAL PORTFOLIO</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html {
+  scroll-behavior: smooth; /* Enables smooth scrolling for the sidebar navigation */
+}
+
+:root{
+  --bg: #FDFDFB;          /* Soft ivory gallery background */
+  --text-main: #1A1A1A;   /* Deep charcoal for optimal legibility */
+  --text-muted: #666660;  /* Soft grey for secondary details */
+  --accent: #6B212B;      /* Muted archival burgundy for subtle highlights */
+  --border-color: #EAEAEA;/* Crisp structural lines */
+  --mid-panel: #F7F7F4;   /* Subtle block shading */
+  --w: 1122px;            /* Standard landscape presentation width */
+  --h: 794px;             /* Standard landscape presentation height */
+  --p: 54px;              /* Consistent gallery padding */
+}
+
+body{
+  background: #EFF0EC;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* DECK PAGES */
+.page{
+  width: var(--w);
+  height: var(--h);
+  background: var(--bg);
+  margin: 32px auto;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+  page-break-after: always;
+}
+
+/* Archival grid line across pages for structural continuity */
+.page::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 35%;
+  width: 100%;
+  height: 1px;
+  background: var(--border-color);
+  z-index: 0;
+}
+
+.pgnum{
+  position: absolute;
+  bottom: var(--p);
+  right: var(--p);
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+}
+
+.status-dot{
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+  margin-right: 8px;
+}
+
+/* SIDEBAR TAXONOMY */
+.sb{
+  width: 250px; /* Slightly wider to accommodate larger text */
+  min-width: 250px;
+  padding: var(--p) 32px var(--p) var(--p);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+  background: var(--bg);
+}
+
+.sb-brand{
+  font-family: 'Space Mono', monospace;
+  font-size: 12px; /* Increased size */
+  letter-spacing: 2px;
+  color: var(--text-main);
+  line-height: 1.8;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.sb-nav{
+  font-family: 'Space Mono', monospace;
+  font-size: 11px; /* Increased size */
+  color: var(--text-muted);
+  line-height: 3; /* More breathing room */
+  letter-spacing: 1.5px;
+}
+.sb-nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  display: block;
+  transition: color 0.3s ease;
+}
+.sb-nav a:hover, .sb-nav a.active {
+  color: var(--accent);
+  font-weight: 600;
+}
+.sb-subnav {
+  margin-left: 12px;
+  font-size: 10px; /* Increased size */
+  line-height: 2.2;
+  color: #999;
+}
+
+/* CONTENT CONTAINER */
+.ct{
+  flex: 1;
+  padding: var(--p);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- COVER / INDEX ---- */
+.index-ct {
+  justify-content: flex-start;
+  padding-top: 80px;
+}
+.cv-pre{
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 6px;
+  color: var(--accent);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.cv-title{
+  font-family: 'Playfair Display', serif;
+  font-size: 72px;
+  font-weight: 400;
+  color: var(--text-main);
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin-bottom: 28px;
+}
+.cv-rule{
+  width: 100px;
+  height: 2px;
+  background: var(--accent);
+  margin-bottom: 48px;
+}
+.toc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 40px;
+}
+.toc-item {
+  border-top: 1px solid var(--border-color);
+  padding-top: 16px;
+}
+.toc-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.toc-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: var(--text-main);
+}
+
+/* ---- HEADERS ---- */
+.sec-header {
+  margin-bottom: 32px;
+}
+.sec-label{
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: var(--accent);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.sec-title{
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+/* ---- GRIDS FOR ARTWORKS ---- */
+.series-box{
+  background: var(--mid-panel);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+/* PREMIUM HOVER EFFECT */
+.series-box:hover {
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+  transform: translateY(-4px);
+  border-color: var(--text-muted);
+  z-index: 10;
+}
+.series-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  cursor: zoom-in; /* Indicates the image can be clicked */
+}
+.series-box:hover .series-img {
+  transform: scale(1.04);
+}
+.series-caption{
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  background: rgba(253, 253, 251, 0.95);
+  padding: 6px 10px;
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  letter-spacing: 0.5px;
+  pointer-events: none; /* Prevents caption from blocking image clicks */
+}
+
+/* ---- LIGHTBOX CSS ---- */
+.lightbox {
+  display: none; 
+  position: fixed; 
+  z-index: 9999; 
+  left: 0; 
+  top: 0; 
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(26, 26, 26, 0.95); 
+  backdrop-filter: blur(8px);
+  align-items: center; 
+  justify-content: center; 
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.lightbox.show {
+  display: flex;
+  opacity: 1;
+}
+.lightbox-img {
+  max-width: 85%; 
+  max-height: 85%; 
+  box-shadow: 0 0 50px rgba(0,0,0,0.5); 
+  object-fit: contain; 
+}
+.lightbox-close {
+  position: absolute; 
+  top: 30px; 
+  left: 40px; 
+  color: #FDFDFB; 
+  font-size: 50px; 
+  font-weight: 300; 
+  cursor: pointer; 
+  font-family: 'Inter', sans-serif; 
+  transition: color 0.3s; 
+  line-height: 1;
+}
+.lightbox-close:hover {
+  color: var(--accent);
+}
+
+/* 2 Grid (Pastels) */
+.two-grid{display: grid; grid-template-columns: 1fr 1fr; gap: 24px; height: calc(100% - 100px);}
+
+/* 8 Grid (Sketches & Rapid) */
+.eight-grid{
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); 
+  grid-template-rows: repeat(2, 1fr); 
+  gap: 16px; 
+  height: calc(100% - 100px);
+}
+
+/* 5 Grid (Abstract) */
+.five-grid{
+  display: grid; 
+  grid-template-columns: repeat(6, 1fr); 
+  grid-template-rows: repeat(2, 1fr); 
+  gap: 16px; 
+  height: calc(100% - 100px);
+}
+.five-grid > div:nth-child(1), .five-grid > div:nth-child(2) { grid-column: span 3; }
+.five-grid > div:nth-child(3), .five-grid > div:nth-child(4), .five-grid > div:nth-child(5) { grid-column: span 2; }
+
+/* 4 Grid (Experimental) */
+.four-grid{
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  grid-template-rows: 1fr 1fr; 
+  gap: 20px; 
+  height: calc(100% - 100px);
+}
+
+/* ---- MODELING GRID ---- */
+.id-grid{display: grid;grid-template-columns: 1fr 1.2fr;gap: 48px;height: calc(100% - 40px);align-items: center;}
+.id-left{display: flex;flex-direction: column;justify-content: center;}
+.id-body{
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+.stat-box {
+  background: var(--mid-panel);
+  border: 1px solid var(--border-color);
+  padding: 16px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.stat-box span {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.stat-box strong {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--text-main);
+  font-weight: 600;
+}
+.id-frame{
+  width: 100%;
+  height: 100%;
+  background: var(--mid-panel);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+/* ---- AUDIO / MUSIC PRODUCTION ---- */
+.music-grid{display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; height: calc(100% - 40px);}
+.drive-btn {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 14px 24px;
+  background: var(--text-main);
+  color: var(--bg);
+  text-decoration: none;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.3s ease;
+}
+.drive-btn:hover {
+  background: var(--accent);
+}
+
+/* ---- SOP & SOCIALS ---- */
+.sop-grid{display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 54px; height: calc(100% - 40px); align-items: flex-start; padding-top: 20px;}
+.social-link {
+  display: block;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--text-main);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+}
+.social-link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+@media print{
+  body{background: none;}
+  .page{margin:0; box-shadow: none; page-break-after:always;}
+  .lightbox { display: none !important; } /* Hide lightbox when printing */
+}
+</style>
+</head>
+<body>
+
+<!-- LIGHTBOX MODAL -->
+<div id="lightbox" class="lightbox">
+  <span id="lightbox-close" class="lightbox-close">&times;</span>
+  <img id="lightbox-img" class="lightbox-img" src="" alt="Expanded View">
+</div>
+
+<!-- PAGE 1: INDEX -->
+<div class="page" id="index">
+  <div class="sb">
+    <div class="sb-brand">
+      OJASWA<br>
+      SRIVASTAV<br>
+      ——<br>
+      2026
+    </div>
+    <div class="sb-nav">
+      <a href="#index" class="active">01 // INDEX</a>
+      <a href="#art-pastels">02 // ART WORKS</a>
+      <a href="#music">03 // MUSIC</a>
+      <a href="#modeling">04 // MODELING</a>
+      <a href="#contact">05 // SOP & CONTACT</a>
+    </div>
+  </div>
+  <div class="ct index-ct">
+    <div class="cv-title">OJASWA<br>SRIVASTAV</div>
+    <div class="cv-rule"></div>
+    <div class="cv-pre">Official Portfolio Archive</div>
+    
+    <div class="toc-grid">
+      <div class="toc-item">
+        <div class="toc-num">01. VISUAL ARCHIVE</div>
+        <div class="toc-name">Art Works</div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">02. MUSIC ARCHIVE</div>
+        <div class="toc-name">Music</div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">03. EDITORIAL PRESENCE</div>
+        <div class="toc-name">Modeling</div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">04. INTENT & OUTLETS</div>
+        <div class="toc-name">SOP & Contact</div>
+      </div>
+    </div>
+  </div>
+  <div class="pgnum">01</div>
+</div>
+
+<!-- PAGE 2: ART WORKS (Pastels) -->
+<div class="page" id="art-pastels">
+  <div class="sb">
+    <div class="sb-brand">OJASWA<br>SRIVASTAV</div>
+    <div class="sb-nav">
+      <a href="#index">01 // INDEX</a>
+      <a href="#art-pastels" class="active">02 // ART WORKS</a>
+      <div class="sb-subnav">
+        <a href="#art-pastels">- Oil Pastels</a>
+        <a href="#art-sketches">- Sketches & Rapid</a>
+        <a href="#art-abstract">- Abstract & Visuals</a>
+        <a href="#art-experimental">- Experimental</a>
+      </div>
+      <a href="#music">03 // MUSIC</a>
+      <a href="#modeling">04 // MODELING</a>
+      <a href="#contact">05 // SOP & CONTACT</a>
+    </div>
+  </div>
+  <div class="ct">
+    <div class="sec-header">
+      <div class="sec-label">Visual Archive // 01</div>
+      <div class="sec-title">Oil Pastel Paintings</div>
+    </div>
+    <div class="two-grid">
+      <div class="series-box">
+        <img class="series-img" src="1000111662.jpg" alt="Blue Eye Pastel">
+        <div class="series-caption">Chromatic Depth // Blue</div>
+      </div>
+      <div class="series-box">
+        <img class="series-img" src="1000111766.jpg" alt="Brown Eye Pastel">
+        <div class="series-caption">Ambient Shadow // Brown</div>
+      </div>
+    </div>
+  </div>
+  <div class="pgnum">02</div>
+</div>
+
+<!-- PAGE 3: ART WORKS (Sketches) -->
+<div class="page" id="art-sketches">
+  <div class="sb">
+    <div class="sb-brand">OJASWA<br>SRIVASTAV</div>
+    <div class="sb-nav">
+      <a href="#index">01 // INDEX</a>
+      <a href="#art-pastels" class="active">02 // ART WORKS</a>
+      <div class="sb-subnav">
+        <a href="#art-pastels">- Oil Pastels</a>
+        <a href="#art-sketches" class="active">- Sketches & Rapid</a>
+        <a href="#art-abstract">- Abstract & Visuals</a>
+        <a href="#art-experimental">- Experimental</a>
+      </div>
+      <a href="#music">03 // MUSIC</a>
+      <a href="#modeling">04 // MODELING</a>
+      <a href="#contact">05 // SOP & CONTACT</a>
+    </div>
+  </div>
+  <div class="ct">
+    <div class="sec-header">
+      <div class="sec-label">Visual Archive // 02</div>
+      <div class="sec-title">Sketches & Rapid Freehand</div>
+    </div>
+    <div class="eight-grid">
+      <div class="series-box">
+        <img class="series-img" src="1000197528.jpg" alt="Shaded Portrait">
+        <div class="series-caption">Structural Portrait</div>
+      </div>
+      <div class="series-box">
+        <img class="series-img" src="1000197637.jpg" alt="Mirror Selfie">
+        <div class="series-caption">Contemporary Setup</div>
+      </div>
+      <div class="series-box">
+        <img class="series-img" src="1000197583.jpg" alt="Patterned Hand">
+        <div class="series-caption">Perspective Study</div>
+      </div>
+      <div class="series-box">
+        <img class="series-img" src="1000197656.jpg" alt="Scratchy Ink Eye">
+        <div class="series-caption">Anxious Line Work</div>
+      </div>
+      <div class="series-box">
+        <img class="series-img" src="1000197644.jpg" alt="Scribbled Figure">
+        <div class="series-caption">Raw Energy</div>
+      </div>
+      <div class="series-box">
+        <img class="series-img" src="1000197647.jpg" alt="Skateboarder">
+        <div class="series-caption">Geometric Breakdown</div>
+      </div>
+      <div class="series-box">
+        <img class="series-img" src="1000197661.jpg" alt="Oath to Destroy">
+        <div class="series-caption">Character Concept</div>
+      </div>
+      <div class="series-box">
+        <img class="series-img" src="placeholder-sketch.jpg" alt="Placeholder">
+        <div class="series-caption">[ Rapid Sketch 04 ]</div>
+      </div>
+    </div>
+  </div>
+  <div class="pgnum">03</div>
+</div>
+
+<!-- PAGE 4: ART WORKS (Abstract) -->
+<div class="page" id="art-abstract">
+  <div class="sb">
+    <div class="sb-brand">OJASWA<br>SRIVASTAV</div>
+    <div class="sb-nav">
+      <a href="#index">01 // INDEX</a>
+      <a href="#art-pastels" class="active">02 // ART WORKS</a>
+      <div class="sb-subnav">
+        <a href="#art-pastels">- Oil Pastels</a>
+        <a href="#art-sketches">- Sketches & Rapid</a>
+        <a href="#art-abstract" class="active">- Abstract & Visuals</a>
+        <a href="#art-experimental">- Experimental</a>
+      </div>
+      <a href="#music">03 // MUSIC</a>
+      <a href="#modeling">04 // MODELING</a>
+      <a href="#contact">05 // SOP & CONTACT</a>
+    </div>
+  </div>
+  <div class="ct">
+    <div class="sec-header">
+      <div class="sec-label">Visual Archive // 03</div>
+      <div class="sec-title">Abstract Art & Visuals</div>
+    </div>
+    <div class="five-grid">
+      <div class="series-box">
+        <img class="series-img" src="1000197632.jpg" alt="Ego Illusion">
+        <div class="series-caption">The Ego Illusion Manifesto</div>
+      </div>
+      <div class="series-box">
+        <img class="series-img" src="1000197651.jpg" alt="Authentic and Pure">
+        <div class="series-caption">Authentic and Pure</div>
+      </div>
+      <div class="series-box">
+        <img class="series-img" src="1000197634.jpg" alt="Pencil Abstract">
+        <div class="series-caption">Pencil Abstract</div>
+      </div>
+      <div class="series-box">
+        <img class="series-img" src="1000185299.jpg" alt="Small Abstract / 3D Hand">
+        <div class="series-caption">Optical Depth</div>
+      </div>
+      <div class="series-box">
+        <div style="width:100%; height:100%; background:#EAEAEA; display:flex; align-items:center; justify-content:center; font-family:'Space Mono'; font-size:10px; color:#888;">[ PENDING INSERTION ]</div>
+        <div class="series-caption">Abstract Visual 05</div>
+      </div>
+    </div>
+  </div>
+  <div class="pgnum">04</div>
+</div>
+
+<!-- PAGE 5: ART WORKS (Experimental) -->
+<div class="page" id="art-experimental">
+  <div class="sb">
+    <div class="sb-brand">OJASWA<br>SRIVASTAV</div>
+    <div class="sb-nav">
+      <a href="#index">01 // INDEX</a>
+      <a href="#art-pastels" class="active">02 // ART WORKS</a>
+      <div class="sb-subnav">
+        <a href="#art-pastels">- Oil Pastels</a>
+        <a href="#art-sketches">- Sketches & Rapid</a>
+        <a href="#art-abstract">- Abstract & Visuals</a>
+        <a href="#art-experimental" class="active">- Experimental</a>
+      </div>
+      <a href="#music">03 // MUSIC</a>
+      <a href="#modeling">04 // MODELING</a>
+      <a href="#contact">05 // SOP & CONTACT</a>
+    </div>
+  </div>
+  <div class="ct">
+    <div class="sec-header">
+      <div class="sec-label">Visual Archive // 04</div>
+      <div class="sec-title">Disturbed / Experimental Art</div>
+    </div>
+    <div class="four-grid">
+      <div class="series-box">
+        <img class="series-img" src="1000197659.jpg" alt="Red Peeled Skin">
+        <div class="series-caption">Stream of Consciousness</div>
+      </div>
+      <div class="series-box">
+        <img class="series-img" src="1000197660.jpg" alt="Skull with Yellow Text">
+        <div class="series-caption">Punk-Rock Visceral</div>
+      </div>
+      <div class="series-box">
+        <img class="series-img" src="1000197524.jpg" alt="Blue Pen Illusion">
+        <div class="series-caption">Subconscious Loops</div>
+      </div>
+      <div class="series-box">
+        <img class="series-img" src="1000197654.jpg" alt="Mushroom Doodles">
+        <div class="series-caption">Casual Form Play</div>
+      </div>
+    </div>
+  </div>
+  <div class="pgnum">05</div>
+</div>
+
+<!-- PAGE 6: MUSIC -->
+<div class="page" id="music">
+  <div class="sb">
+    <div class="sb-brand">OJASWA<br>SRIVASTAV</div>
+    <div class="sb-nav">
+      <a href="#index">01 // INDEX</a>
+      <a href="#art-pastels">02 // ART WORKS</a>
+      <a href="#music" class="active">03 // MUSIC</a>
+      <a href="#modeling">04 // MODELING</a>
+      <a href="#contact">05 // SOP & CONTACT</a>
+    </div>
+  </div>
+  <div class="ct">
+    <div class="sec-header">
+      <div class="sec-label">Music Archive</div>
+      <div class="sec-title">The Movement</div>
+    </div>
+    <div class="music-grid">
+      <div class="music-left">
+        <div class="id-body">
+          Building a collective movement through sound. This space represents the intersection of rockstar frontman energy, cinematic storytelling, and raw audio production. <br><br>
+          My work involves precise songwriting, exploring tension between ancient melodic structures and contemporary production beds, and executing a distinct vocal range from rock and metal to baritone English and soft Hindi.
+        </div>
+        
+        <div class="track-block" style="margin-top: 32px;">
+          <div class="sec-label" style="font-size: 8px;">Access The Vault</div>
+          <div style="font-family:'Playfair Display', serif; font-size:24px; color:var(--text-main); margin-bottom:8px;">Unreleased Demos & Audio</div>
+          <div class="id-body" style="font-size: 13px;">
+            A secured repository of current audio projects, vocal tests, and production blueprints.
+          </div>
+          <a href="YOUR_GOOGLE_DRIVE_LINK_HERE" target="_blank" class="drive-btn">Open Google Drive Archive</a>
+        </div>
+      </div>
+      <div class="music-right" style="padding-left: 0; border: none;">
+        <div class="series-box" style="height: 100%;">
+            <div style="width:100%; height:100%; background:#1A1A1A; display:flex; align-items:center; justify-content:center; font-family:'Space Mono'; font-size:10px; color:#666;">[ AUDIO VISUAL ASSET ]</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pgnum">06</div>
+</div>
+
+<!-- PAGE 7: MODELING -->
+<div class="page" id="modeling">
+  <div class="sb">
+    <div class="sb-brand">OJASWA<br>SRIVASTAV</div>
+    <div class="sb-nav">
+      <a href="#index">01 // INDEX</a>
+      <a href="#art-pastels">02 // ART WORKS</a>
+      <a href="#music">03 // MUSIC</a>
+      <a href="#modeling" class="active">04 // MODELING</a>
+      <a href="#contact">05 // SOP & CONTACT</a>
+    </div>
+  </div>
+  <div class="ct">
+    <div class="sec-header">
+      <div class="sec-label">Editorial Presence</div>
+      <div class="sec-title">Form & Architecture</div>
+    </div>
+    <div class="id-grid">
+      <div class="id-left">
+        <div class="id-body" style="margin-bottom: 32px;">
+          Approaching physical presence with the same discipline as visual art. A focus on high-fashion, editorial, and "off-duty" aesthetics, utilizing a strong understanding of studio lighting and geometric bone definition to shape the final image.
+        </div>
+        <div class="stat-box">
+          <span>Height</span>
+          <strong>6'1"</strong>
+        </div>
+        <div class="stat-box">
+          <span>Build</span>
+          <strong>Lean / Athletic</strong>
+        </div>
+        <div class="stat-box">
+          <span>Age</span>
+          <strong>18</strong>
+        </div>
+        <div class="stat-box">
+          <span>Aesthetic</span>
+          <strong>Editorial / Off-Duty</strong>
+        </div>
+      </div>
+      <div class="id-right" style="padding-left: 0; border: none; height: 100%;">
+        <div class="two-up" style="display: grid; grid-template-rows: 1fr 1fr; gap: 20px; height: 100%;">
+            <div class="series-box">
+                <img class="series-img" src="placeholder-modeling-1.jpg" alt="Modeling Shot 1">
+            </div>
+            <div class="series-box">
+                <img class="series-img" src="placeholder-modeling-2.jpg" alt="Modeling Shot 2">
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pgnum">07</div>
+</div>
+
+<!-- PAGE 8: CONTACT & SOP -->
+<div class="page" id="contact">
+  <div class="sb">
+    <div class="sb-brand">OJASWA<br>SRIVASTAV</div>
+    <div class="sb-nav">
+      <a href="#index">01 // INDEX</a>
+      <a href="#art-pastels">02 // ART WORKS</a>
+      <a href="#music">03 // MUSIC</a>
+      <a href="#modeling">04 // MODELING</a>
+      <a href="#contact" class="active">05 // SOP & CONTACT</a>
+    </div>
+  </div>
+  <div class="ct">
+    <div class="sec-header">
+      <div class="sec-label">Intent & Outlets</div>
+      <div class="sec-title">Statement of Purpose</div>
+    </div>
+    <div class="sop-grid">
+      <div class="id-left" style="justify-content: flex-start;">
+        <div class="id-body">
+          [ Insert your Statement of Purpose here. Detail your vision as a Founder-Artist. Discuss how your technical engineering mindset intersects with your raw creative output, and your drive to build systems, aesthetics, and narratives that leave an impact. ]
+          <br><br>
+          [ Expand on your academic and professional goals, bridging the gap between management, technical development, and the avant-garde arts. ]
+        </div>
+      </div>
+      <div class="id-right" style="justify-content: flex-start;">
+        <div class="sec-label">Digital Architecture</div>
+        <a href="https://stallycal.github.io/unbound-archive/" target="_blank" class="social-link">stallycal.github.io/unbound-archive</a>
+        <div class="id-body" style="font-size: 12px; margin-bottom: 32px;">
+          The custom static archive hosting interactive code, visual repositories, and project deployments.
+        </div>
+
+        <div class="sec-label">Network & Contact</div>
+        <a href="mailto:your.email@example.com" class="social-link">Email // Portfolio Review Only</a>
+        <a href="#" class="social-link">Instagram // @yourhandle (Review Only)</a>
+        <a href="#" class="social-link">GitHub // @stallycal</a>
+      </div>
+    </div>
+  </div>
+  <div class="pgnum">08</div>
+</div>
+
+<!-- LIGHTBOX SCRIPT -->
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.getElementById('lightbox-close');
+  const images = document.querySelectorAll('.series-img');
+
+  // Open Lightbox
+  images.forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.classList.add('show');
+      lightboxImg.src = img.src;
+    });
+  });
+
+  // Close Lightbox on Close Button Click
+  closeBtn.addEventListener('click', () => {
+    lightbox.classList.remove('show');
+  });
+
+  // Close Lightbox on Outside Click
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove('show');
+    }
+  });
+</script>
+
+</body>
+</html>
