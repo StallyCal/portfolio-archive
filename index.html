@@ -9,7 +9,7 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden; /* Hard stop for any horizontal scrolling */
+  overflow-x: hidden; 
 }
 
 :root{
@@ -34,10 +34,10 @@ body{
 
 /* DECK PAGES */
 .page{
-  max-width: var(--w); /* Allows shrinking on smaller screens to prevent horizontal scroll */
+  max-width: var(--w); 
   width: 100%;
   min-height: var(--h);
-  height: auto; /* Allows page to get infinitely longer */
+  height: auto; 
   background: var(--bg);
   margin: 32px auto;
   position: relative;
@@ -46,7 +46,6 @@ body{
   page-break-after: always;
 }
 
-/* Archival line now fixed from the top so it doesn't move weirdly on long pages */
 .page::after{
   content: '';
   position: absolute;
@@ -98,7 +97,6 @@ body{
   color: var(--text-muted);
   line-height: 3; 
   letter-spacing: 1.5px;
-  /* Make the nav stick to the top as you scroll down a long page */
   position: sticky; 
   top: 150px;
 }
@@ -163,7 +161,7 @@ body{
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  margin-top: 40px;
+  margin-top: 24px;
 }
 .toc-item {
   border-top: 1px solid var(--border-color);
@@ -179,6 +177,17 @@ body{
   font-family: 'Playfair Display', serif;
   font-size: 24px;
   color: var(--text-main);
+}
+
+/* Featured Block for Web Dev Link */
+.featured-block {
+  margin-top: 48px;
+  padding: 32px;
+  background: var(--mid-panel);
+  border: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* ---- HEADERS ---- */
@@ -201,11 +210,11 @@ body{
   line-height: 1.2;
 }
 
-/* ---- FLUID/MASONRY GRID (Naturally flows vertically) ---- */
+/* ---- FLUID/MASONRY GRID ---- */
 .fluid-grid {
   column-gap: 24px;
   height: auto; 
-  padding-bottom: 80px; /* Buffer before the bottom of the page */
+  padding-bottom: 80px; 
 }
 
 .fluid-grid.cols-2 { column-count: 2; }
@@ -263,7 +272,6 @@ body{
   pointer-events: none; 
 }
 
-/* Standard Box styling for non-fluid elements */
 .standard-box {
   background: var(--mid-panel);
   border: 1px solid var(--border-color);
@@ -321,14 +329,29 @@ body{
   font-size: 14px;
   font-weight: 400;
   color: var(--text-muted);
-  line-height: 1.9;
+  line-height: 1.8;
+}
+
+.id-body p {
+  margin-bottom: 16px;
+}
+
+.sop-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: var(--accent);
+  line-height: 1.5;
+  margin: 32px 0;
+  padding-left: 24px;
+  border-left: 2px solid var(--accent);
+  font-style: italic;
 }
 
 /* ---- MULTIMEDIA SECTIONS ---- */
 .music-grid{display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; padding-bottom: 60px;}
 .drive-btn {
   display: inline-block;
-  margin-top: 24px;
+  margin-top: 16px;
   padding: 14px 24px;
   background: var(--text-main);
   color: var(--bg);
@@ -344,7 +367,7 @@ body{
 }
 
 /* ---- SOP & SOCIALS ---- */
-.sop-grid{display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 54px; align-items: start; padding-top: 20px; padding-bottom: 60px;}
+.sop-grid{display: grid; grid-template-columns: 1.5fr 0.5fr; gap: 54px; align-items: start; padding-top: 20px; padding-bottom: 60px;}
 .social-link {
   display: block;
   font-family: 'Space Mono', monospace;
@@ -422,6 +445,18 @@ body{
         <div class="toc-name">SOP & Contact</div>
       </div>
     </div>
+
+    <!-- Prominent Web Dev Link Moved to Cover -->
+    <div class="featured-block">
+      <div>
+        <div class="sec-label">Interactive Archive & Development</div>
+        <div style="font-family:'Playfair Display', serif; font-size:24px; color:var(--text-main); margin-bottom:8px;">stallycal.github.io/unbound-archive</div>
+        <div class="id-body" style="font-size: 13px; max-width: 500px;">
+          A custom static archive showcasing interactive visual repositories and web development capabilities. Designed and built from scratch to reflect design language.
+        </div>
+      </div>
+      <a href="https://stallycal.github.io/unbound-archive/" target="_blank" class="drive-btn" style="margin-top: 0;">Explore Live Build</a>
+    </div>
   </div>
   <div class="pgnum">01</div>
 </div>
@@ -451,7 +486,6 @@ body{
       <div class="sec-title">Colored Illustrations</div>
     </div>
     
-    <!-- 4 Images = 2 Columns -->
     <div class="fluid-grid cols-2">
       <div class="series-box">
         <img class="series-img" src="assets/blueye.png" alt="Blue Eyed Pastel">
@@ -499,7 +533,6 @@ body{
       <div class="sec-title">Sketches & Rapid Freehand</div>
     </div>
     
-    <!-- 11 Images = 3 Columns for clean vertical spacing -->
     <div class="fluid-grid cols-3">
       <div class="series-box">
         <img class="series-img" src="assets/sketch.jpeg" alt="Normal Portrait">
@@ -575,7 +608,6 @@ body{
       <div class="sec-title">Abstract Art & Visuals</div>
     </div>
     
-    <!-- 2 Images = 2 Columns -->
     <div class="fluid-grid cols-2">
       <div class="series-box">
         <img class="series-img" src="assets/egoillusion.jpeg" alt="Ego Illusion">
@@ -615,7 +647,6 @@ body{
       <div class="sec-title">Disturbed / Experimental Art</div>
     </div>
     
-    <!-- 2 Images = 2 Columns -->
     <div class="fluid-grid cols-2">
       <div class="series-box">
         <img class="series-img" src="assets/bluesion.jpeg" alt="Blue Pen Illusion">
@@ -651,15 +682,15 @@ body{
     <div class="music-grid">
       <div class="music-left">
         <div class="id-body">
-          Building a curated moment through sound. This space represents the intersection of storytelling foundation through raw audio production. <br><br>
-          My work overall involves precise songwriting, exploring tension between ancient melodic structures and contemporary production beds, and executing a distinct vocal range from rock and metal to baritone English and soft Hindi.
+          <p>Building a curated moment through sound. This space represents the intersection of storytelling foundation through raw audio production.</p>
+          <p>My work overall involves precise songwriting, exploring tension between ancient melodic structures and contemporary production beds, and executing a distinct vocal range from rock and metal to baritone English and soft Hindi.</p>
         </div>
         
         <div class="track-block" style="margin-top: 32px;">
           <div class="sec-label" style="font-size: 8px;">Access The Vault</div>
           <div style="font-family:'Playfair Display', serif; font-size:24px; color:var(--text-main); margin-bottom:8px;">Unreleased Demos & samples</div>
           <div class="id-body" style="font-size: 13px;">
-            A secured repository of current audio production
+            A secured repository of current audio production.
           </div>
           <a href="https://drive.google.com/drive/folders/1CqZqYLdS91pXZ0NARl34_UOExBKF-JbH?usp=sharing" target="_blank" class="drive-btn">Open Google Drive Archive</a>
         </div>
@@ -718,27 +749,54 @@ body{
 </div>
 
 <!-- PAGE 8: MODELING -->
-<div class="ct">
+<div class="page" id="modeling">
+  <div class="sb">
+    <div class="sb-brand">OJASWA<br>SRIVASTAV</div>
+    <div class="sb-nav">
+      <a href="#index">01 // INDEX</a>
+      <a href="#art-pastels">02 // ART WORKS</a>
+      <a href="#music">03 // MUSIC</a>
+      <a href="#screenplays">04 // SCREENPLAYS</a>
+      <a href="#modeling" class="active">05 // MODELING</a>
+      <a href="#contact">06 // SOP & CONTACT</a>
+    </div>
+  </div>
+  <div class="ct">
     <div class="sec-header">
       <div class="sec-label">Editorial Presence</div>
       <div class="sec-title">Form & Architecture</div>
     </div>
     <div style="display: flex; flex-direction: column;">
-      <div class="id-body" style="margin-bottom: 32px; max-width: 90%;">
-        Approaching physical presence with the same discipline as visual art. Exploring dynamic silhouettes and defining aesthetic direction through personally curated mood boards. Currently modelling for Fwalks modelling agency
+      <div class="id-body" style="margin-bottom: 24px; max-width: 90%;">
+        Approaching physical presence with the same discipline as visual art. Exploring dynamic silhouettes and defining aesthetic direction through personally curated mood boards. Currently active in modelling representation for Fwalks Agency.
       </div>
       
-      <!-- VSCO Link Block -->
-      <div class="track-block" style="margin-top: 16px;">
-        <div class="sec-label" style="font-size: 8px;">View Curated Mood Boards</div>
-        <div style="font-family:'Playfair Display', serif; font-size:24px; color:var(--text-main); margin-bottom:8px;">VSCO Visual Journal</div>
-        <div class="id-body" style="font-size: 13px; margin-bottom: 16px;">
-          An ongoing digital archive of editorial inspiration, silhouettes, and personal aesthetics.
+      <!-- Side-by-Side Links for Industry Prep vs Personal Aesthetic -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 16px;">
+        
+        <div class="track-block" style="padding: 24px; border: 1px solid var(--border-color); background: var(--mid-panel);">
+          <div class="sec-label" style="font-size: 8px;">Personal Aesthetics</div>
+          <div style="font-family:'Playfair Display', serif; font-size:20px; color:var(--text-main); margin-bottom:8px;">VSCO Visual Journal</div>
+          <div class="id-body" style="font-size: 12px; margin-bottom: 16px;">
+            An ongoing digital archive of editorial inspiration, silhouettes, and personal aesthetics.
+          </div>
+          <a href="https://vsco.co/oj69420/gallery" target="_blank" class="drive-btn" style="margin-top:0;">Open VSCO Profile</a>
         </div>
-        <a href="https://vsco.co/oj69420/gallery" target="_blank" class="drive-btn">Open VSCO Profile</a>
+
+        <div class="track-block" style="padding: 24px; border: 1px solid var(--border-color); background: var(--mid-panel);">
+          <div class="sec-label" style="font-size: 8px;">Shoot Direction</div>
+          <div style="font-family:'Playfair Display', serif; font-size:20px; color:var(--text-main); margin-bottom:8px;">Pinterest Mood Boards</div>
+          <div class="id-body" style="font-size: 12px; margin-bottom: 16px;">
+            Curated industry references for posing geometry, lighting setups, and wardrobe direction.
+          </div>
+          <a href="https://pin.it/4pxmsqnKY" target="_blank" class="drive-btn" style="margin-top:0;">Open Pinterest</a>
+        </div>
+
       </div>
     </div>
   </div>
+  <div class="pgnum">08</div>
+</div>
 
 <!-- PAGE 9: CONTACT & SOP -->
 <div class="page" id="contact">
@@ -761,26 +819,27 @@ body{
     <div class="sop-grid">
       <div class="id-left" style="justify-content: flex-start;">
         <div class="id-body">
-         I started building things before i had a name for what i was doing. By the time I was in highschool, i picked up guitar, keyboard, and flute, and started producing music on my own — first rock and metal, then hip-hop and RnB, and more recently an attempt to fold Persian and Arabic modal scales into contemporary production. None of it came from a class. i learned it by listening obsessively, then trying to recreate what I'd heard, badly at first, until it stopped being bad.
-The same instinct runs through most of what I make. I taught myself enough to build and code my own website from scratch, because I wanted a place that actually looked like the work inside it, not a template that happened to be holding it. When I came across an artist's optical-illusion drawing technique — building a moving form out of equidistant lines on a flat surface — I learned the method myself and used it to draw a piece for a café wall in Jodhpur. I'm not interested in keeping things I admire as references. I'd rather take them apart and see what I can build with the pieces.
-What connects the different things I make is less a philosophy and more a habit: I keep noticing what happens when you remove the obvious way of experiencing something. Im currently developing a music video built around a track I'm scoring myself — a vocal melody translated into cello, set in a room full of people watching a performance, except the one person moving through the crowd is blindfolded, navigating entirely by sound. It's less a statement and more a question I wanted to build and actually watch happen, instead of just thinking about it. Design to me, is the part of any of this that decides whether a feeling actually reaches someone else, not the decoration sitting on top of it.
-School, in its standard form, never matched how I think. I do badly with material I have to memorise without understanding why it matters, and well with anything I can build, test, and rebuild. That's a large part of why I'm pursuing Communication Design specifically. it's a field where thinking turns into visible work every term, rather than staying theoretical until an exam decides whether I understood it
-Currently being signed with a modelling agency in Mumbai, which has put me inside rooms and routines I wouldn't otherwise have access to this early, and given me a real sense of how image and presentation function as an industry rather than just as ideas.
-What I want from a design education isn't to be taught how to be creative, i presume to already have a hold on that part. I want to be around people who take it seriously enough to argue with me about it, and a structure that turns instinct into a craft I can repeat on demand and maybe eventually for other people whose work needs the same thing mine does, need a way to be felt, not just seen.
-        
+          <p>I started building things before I had a name for what i was doing. By the time I was in high school I picked up guitar, keyboard, and flute, and started producing music on my own. first rock and metal, then hip-hop and RnB, and more recently an attempt to fold Persian and Arabic modal scales into contemporary production. None of it came from a class. I learned it by listening obsessively, then trying to recreate what I'd heard, badly at first, until it stopped being bad.</p>
+          
+          <p>The same instinct runs through most of what I make. I taught myself enough to build and code my own website from scratch, because I wanted a place that actually looked like the work inside it, not a template that happened to be holding it. When I came across an artist's optical-illusion drawing technique and building a moving form out of equidistant lines on a flat surface, I learned the method myself and used it to draw a piece for a café wall in Jodhpur. I'm not interested in keeping things I admire as references. I'd rather take them apart and see what I can build with the pieces.</p>
+          
+          <div class="sop-quote">
+            "What connects the different things I make is less a philosophy and more a habit, for that i keep noticing what happens when you remove the obvious way of experiencing something."
+          </div>
+          
+          <p>I am currently developing a music video built around a track I'm working on myself, a vocal melody translated into cello, set in a room full of people watching a performance, except the one person moving through the crowd is blindfolded, navigating entirely by sound. Its less a statement and more a question I wanted to build and actually watch happen, instead of just thinking about it. Design to me, is the part of any of this that decides whether a feeling actually reaches someone else, not the decoration sitting on top of it.</p>
+          
+          <p>School, in its standard form, never matched how I think. I do badly with material I have to memorise without understanding why it matters, and well with anything I can build, test, and rebuild. That's a large part of why I'm pursuing Communication Design specifically. Its a field where thinking turns into visible work every term, rather than staying theoretical until an exam decides whether I understood it.</p>
+          
+          <p>Currently being signed with a modelling agency in Mumbai has put me inside rooms and routines I wouldn't otherwise have access to this early, and given me a real sense of how image and presentation function as an industry rather than just as ideas. What I want from a design education isn't to be taught how to be creative, I presume to already have a hold on that part. I want to be around people who take it SERIOUSLY enough to argue with me about it, and a structure that turns instinct into a craft I can repeat on demand and maybe eventually for other people whose work needs the same thing mine does... a way to be felt, not just seen.</p>
         </div>
       </div>
+      
       <div class="id-right" style="justify-content: flex-start;">
-        <div class="sec-label">Digital Architecture</div>
-        <a href="https://stallycal.github.io/unbound-archive/" target="_blank" class="social-link">stallycal.github.io/unbound-archive</a>
-        <div class="id-body" style="font-size: 12px; margin-bottom: 32px;">
-          The custom static archive hosting interactive code, visual repositories, and project deployments.
-        </div>
-
         <div class="sec-label">Network & Contact</div>
-        <a href="mailto:your.email@example.com" class="social-link">Email // Portfolio Review Only</a>
-        <a href="#" class="social-link">Instagram // @yourhandle (Review Only)</a>
-        <a href="#" class="social-link">GitHub // @stallycal</a>
+        <a href="ojaswa22@gmail.com" class="social-link">Email // Portfolio Review Only</a>
+        <a href="@program_gone_psych" class="social-link">Instagram // @yourhandle (Review Only)</a>
+        <a href="https://github.com/stallycal" target="_blank" class="social-link">GitHub // @stallycal</a>
       </div>
     </div>
   </div>
